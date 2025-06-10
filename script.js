@@ -4,7 +4,6 @@ const produtos = [
         nome: "Inseticida Agrícola Premium (1L)",
         descricao: "Potente inseticida de amplo espectro para grandes culturas. Ação rápida e eficaz.",
         preco: 189.90,
-        // Manter a URL original e controlar o tamanho via CSS
         imagem: "https://villaverdeagro.com.br/wp-content/webp-express/webp-images/uploads/2023/10/36.jpg.webp"
     },
     {
@@ -26,14 +25,14 @@ const produtos = [
         nome: "Gel Iscas para Baratas (30g)",
         descricao: "Atrai e elimina colônias de baratas em cozinhas e áreas úmidas.",
         preco: 29.90,
-        imagem: "https://images.unsplash.com/photo-1621808027581-22ac6d252445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjYxNTR8MHwxfHNlYXJjaHwyMHx8aG91c2Vob2xkJTIwaW5zZWN0aWNpZGV8ZW58MHx8fHwxNzE3OTE0NTMxfDA&ixlib=rb-4.0.3&q=80&w=400"
+        imagem: "https://http2.mlstatic.com/D_NQ_NP_701714-MLB83113994399_032025-O.webp"
     },
     {
         id: 5,
         nome: "Pulverizador Costal Agrícola (20L)",
         descricao: "Equipamento robusto para aplicação de defensivos em grandes áreas.",
         preco: 450.00,
-        imagem: "https://images.unsplash.com/photo-1617478051259-7f3c4d5b2e53?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjYxNTR8MHwxfHNlYXJjaHwxOHx8YWdyaWN1bHR1cmUlMjBwdWx2ZXJpemVyfGVufDB8fHx8MTcxNzkxNDgwN3ww&lib=rb-4.0.3&q=80&w=400"
+        imagem: "hhttps://http2.mlstatic.com/D_NQ_NP_806298-MLU77827939082_072024-O.webp"
     },
     {
         id: 6,
@@ -74,7 +73,6 @@ const produtos = [
 
 let carrinho = [];
 
-// Elementos do DOM
 const cartIcon = document.getElementById('cartIcon');
 const cartCount = document.getElementById('cartCount');
 const cartModal = document.getElementById('cartModal');
@@ -94,48 +92,37 @@ const checkoutForm = document.getElementById('checkoutForm');
 const formaPagamentoSelect = document.getElementById('forma-pagamento');
 const camposPagamentoDinamicosDiv = document.getElementById('campos-pagamento-dinamicos');
 
-// --- Event Listeners para a Navegação por Abas ---
 document.querySelectorAll('.tab-link').forEach(link => {
     link.addEventListener('click', e => {
-        e.preventDefault(); // Impede o comportamento padrão do link
-        const tab = link.getAttribute('data-tab'); // Obtém o 'data-tab' do link clicado
+        e.preventDefault();
+        const tab = link.getAttribute('data-tab');
 
-        // Esconde todas as seções de abas
         document.querySelectorAll('.tab-section').forEach(section => {
             section.style.display = 'none';
         });
-        // Remove a classe 'active' de todos os links de aba
         document.querySelectorAll('.tab-link').forEach(l => l.classList.remove('active'));
 
-        // Mostra a seção de aba correspondente e adiciona a classe 'active' ao link
         document.getElementById(tab).style.display = 'block';
         link.classList.add('active');
 
-        // Atualiza a UI do carrinho/finalizar compra se a aba correspondente for ativada
         if (tab === 'carrinho') {
             atualizarCarrinhoPageUI();
         } else if (tab === 'finalizar-compra') {
             atualizarCheckoutUI();
-            exibirCamposPagamento(); // Garante que os campos de pagamento sejam exibidos
+            exibirCamposPagamento();
         } else if (tab === 'produtos') {
-            carregarProdutos(); // Garante que os produtos sejam recarregados ao acessar a aba
+            carregarProdutos();
         }
     });
 });
 
-// --- Funções de Manipulação de Produtos e Carrinho ---
-
-/**
- * Carrega e exibe os produtos na página.
- */
 function carregarProdutos() {
     const container = document.getElementById('product-list');
-    container.innerHTML = ''; // Limpa o container antes de adicionar novos produtos
+    container.innerHTML = '';
 
-    // Itera sobre a lista de produtos e cria os elementos HTML
     produtos.forEach(p => {
         const div = document.createElement('div');
-        div.className = 'product-item'; 
+        div.className = 'product-item';
         div.innerHTML = `
             <img src="${p.imagem}" alt="${p.nome}">
             <h3>${p.nome}</h3>
@@ -146,7 +133,6 @@ function carregarProdutos() {
         container.appendChild(div);
     });
 
-    // Adiciona event listeners aos botões "Adicionar ao Carrinho"
     document.querySelectorAll('.product-item .add-to-cart-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const productId = parseInt(e.target.dataset.id);
@@ -155,10 +141,6 @@ function carregarProdutos() {
     });
 }
 
-/**
- * Adiciona um produto ao carrinho ou aumenta sua quantidade se já existir.
- * @param {number} productId - O ID do produto a ser adicionado.
- */
 function adicionarAoCarrinho(productId) {
     const produtoExistente = carrinho.find(item => item.id === productId);
     if (produtoExistente) {
@@ -169,27 +151,20 @@ function adicionarAoCarrinho(productId) {
             carrinho.push({ ...produto, quantidade: 1 });
         }
     }
-    atualizarCarrinhoUI(); // Atualiza o ícone do carrinho no header e o modal
+    atualizarCarrinhoUI();
     if (document.getElementById('carrinho').style.display === 'block') {
-        atualizarCarrinhoPageUI(); // Se estiver na página do carrinho, atualiza também
+        atualizarCarrinhoPageUI();
     }
     alert('Produto adicionado ao carrinho!');
 }
 
-/**
- * Remove um produto do carrinho.
- * @param {number} productId - O ID do produto a ser removido.
- */
 function removerDoCarrinho(productId) {
-    // Encontra o índice do produto no carrinho
     const index = carrinho.findIndex(item => item.id === productId);
 
     if (index !== -1) {
-        // Se a quantidade for maior que 1, apenas decrementa
         if (carrinho[index].quantidade > 1) {
             carrinho[index].quantidade--;
         } else {
-            // Se a quantidade for 1, remove o item completamente
             carrinho.splice(index, 1);
         }
     }
@@ -200,27 +175,18 @@ function removerDoCarrinho(productId) {
     }
     if (document.getElementById('finalizar-compra').style.display === 'block') {
         atualizarCheckoutUI();
-        exibirCamposPagamento(); // Reexibir campos caso o carrinho fique vazio
+        exibirCamposPagamento();
     }
 }
 
-
-/**
- * Calcula o valor total dos itens no carrinho.
- * @returns {number} O valor total do carrinho.
- */
 function calcularTotalCarrinho() {
     return carrinho.reduce((total, item) => total + (item.preco * item.quantidade), 0);
 }
 
-/**
- * Atualiza a interface do usuário do ícone do carrinho no header e do modal do carrinho.
- */
 function atualizarCarrinhoUI() {
-    // Atualiza a contagem no ícone do carrinho
     cartCount.textContent = carrinho.reduce((total, item) => total + item.quantidade, 0);
 
-    cartItemsList.innerHTML = ''; // Limpa a lista do modal
+    cartItemsList.innerHTML = '';
     
     if (carrinho.length === 0) {
         cartItemsList.innerHTML = '<li>Seu carrinho está vazio.</li>';
@@ -241,7 +207,6 @@ function atualizarCarrinhoUI() {
     }
     cartTotalElement.textContent = calcularTotalCarrinho().toFixed(2);
 
-    // Adiciona event listeners aos botões de remover no modal
     document.querySelectorAll('#cartItemsList .btn-remove').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const productId = parseInt(e.target.dataset.id);
@@ -250,11 +215,8 @@ function atualizarCarrinhoUI() {
     });
 }
 
-/**
- * Atualiza a interface do usuário da página do carrinho.
- */
 function atualizarCarrinhoPageUI() {
-    cartPageList.innerHTML = ''; // Limpa a lista da página do carrinho
+    cartPageList.innerHTML = '';
     
     if (carrinho.length === 0) {
         cartPageList.innerHTML = '<li>Seu carrinho está vazio. Adicione alguns produtos!</li>';
@@ -275,7 +237,6 @@ function atualizarCarrinhoPageUI() {
     }
     cartPageTotal.textContent = calcularTotalCarrinho().toFixed(2);
 
-    // Adiciona event listeners aos botões de remover na página do carrinho
     document.querySelectorAll('#cartPageList .btn-remove').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const productId = parseInt(e.target.dataset.id);
@@ -284,19 +245,16 @@ function atualizarCarrinhoPageUI() {
     });
 }
 
-/**
- * Atualiza a interface do usuário da seção de finalizar compra.
- */
 function atualizarCheckoutUI() {
-    checkoutSummaryList.innerHTML = ''; // Limpa o resumo do pedido
+    checkoutSummaryList.innerHTML = '';
     
     if (carrinho.length === 0) {
         checkoutSummaryList.innerHTML = '<li>Seu carrinho está vazio. Por favor, adicione produtos para finalizar a compra.</li>';
         checkoutForm.querySelector('.checkout-confirm-btn').disabled = true;
-        formaPagamentoSelect.disabled = true; // Desabilita a seleção de pagamento
+        formaPagamentoSelect.disabled = true;
     } else {
         checkoutForm.querySelector('.checkout-confirm-btn').disabled = false;
-        formaPagamentoSelect.disabled = false; // Habilita a seleção de pagamento
+        formaPagamentoSelect.disabled = false;
         carrinho.forEach(item => {
             const li = document.createElement('li');
             li.innerHTML = `
@@ -309,12 +267,9 @@ function atualizarCheckoutUI() {
     checkoutTotalElement.textContent = calcularTotalCarrinho().toFixed(2);
 }
 
-/**
- * Exibe os campos de pagamento dinamicamente com base na forma de pagamento selecionada.
- */
 function exibirCamposPagamento() {
     const formaPagamento = formaPagamentoSelect.value;
-    camposPagamentoDinamicosDiv.innerHTML = ''; // Limpa os campos anteriores
+    camposPagamentoDinamicosDiv.innerHTML = '';
 
     if (formaPagamento === 'cartao') {
         camposPagamentoDinamicosDiv.innerHTML = `
@@ -347,56 +302,44 @@ function exibirCamposPagamento() {
     }
 }
 
-// --- Event Listeners Globais ---
-
-// Abre o modal do carrinho quando o ícone é clicado
 cartIcon.addEventListener('click', () => {
     cartModal.style.display = 'flex';
     atualizarCarrinhoUI();
 });
 
-// Fecha o modal do carrinho quando o botão de fechar é clicado
 closeButton.addEventListener('click', () => {
     cartModal.style.display = 'none';
 });
 
-// Fecha o modal do carrinho quando o usuário clica fora dele
 window.addEventListener('click', (event) => {
     if (event.target === cartModal) {
         cartModal.style.display = 'none';
     }
 });
 
-// Botão "Finalizar Compra" do modal do carrinho
 finalizarCompraModalBtn.addEventListener('click', () => {
-    cartModal.style.display = 'none'; // Fecha o modal
-    // Simula o clique na aba "Finalizar Compra"
+    cartModal.style.display = 'none';
     document.querySelector('.tab-link[data-tab="finalizar-compra"]').click();
 });
 
-// Botão "Finalizar Compra" da página do carrinho
 finalizarCompraPageBtn.addEventListener('click', () => {
     document.querySelector('.tab-link[data-tab="finalizar-compra"]').click();
 });
 
-// Botão "Continuar Comprando" da página do carrinho
 continuarComprandoBtn.addEventListener('click', () => {
     document.querySelector('.tab-link[data-tab="produtos"]').click();
 });
 
-// Event listener para a mudança na forma de pagamento
 formaPagamentoSelect.addEventListener('change', exibirCamposPagamento);
 
-// Event listener para o envio do formulário de checkout
 checkoutForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // Impede o envio padrão do formulário
+    e.preventDefault();
 
     if (carrinho.length === 0) {
         alert('Seu carrinho está vazio. Adicione produtos antes de finalizar a compra.');
         return;
     }
 
-    // Coletar dados do formulário
     const formData = new FormData(checkoutForm);
     const pedido = {
         cliente: {
@@ -412,35 +355,27 @@ checkoutForm.addEventListener('submit', (e) => {
         formaPagamento: formData.get('forma-pagamento')
     };
 
-    // Aqui você enviaria os dados do pedido para um backend
     console.log('Pedido Confirmado:', pedido);
     alert('Pedido realizado com sucesso! Em breve você receberá um e-mail de confirmação.');
 
-    // Limpar o carrinho e a UI após o pedido
     carrinho = [];
     atualizarCarrinhoUI();
     atualizarCarrinhoPageUI();
     atualizarCheckoutUI();
-    checkoutForm.reset(); // Limpa o formulário
-    exibirCamposPagamento(); // Garante que os campos de pagamento sejam resetados/escondidos
+    checkoutForm.reset();
+    exibirCamposPagamento();
 
-    // Redireciona para a página inicial (ou uma página de confirmação)
     document.querySelector('.tab-link[data-tab="home"]').click();
 });
 
-
-// Event listener para o formulário de contato
 document.querySelector('.contact-form').addEventListener('submit', (e) => {
     e.preventDefault();
     alert('Mensagem enviada com sucesso! Em breve entraremos em contato.');
-    e.target.reset(); // Limpa o formulário de contato
+    e.target.reset();
 });
 
-
-// Inicializa a exibição dos produtos quando a página é carregada
 document.addEventListener('DOMContentLoaded', () => {
     carregarProdutos();
-    atualizarCarrinhoUI(); // Garante que a contagem do carrinho esteja correta ao carregar
-    // Opcional: ativa a primeira aba ao carregar a página
-    document.querySelector('.tab-link.active').click(); 
+    atualizarCarrinhoUI();
+    document.querySelector('.tab-link.active').click();
 });

@@ -1,24 +1,19 @@
-/* ==================================== */
-/* Variáveis CSS Globais       */
-/* ==================================== */
 :root {
-    /* Cores */
-    --primary-color: #007bff;        /* Azul primário */
-    --secondary-color: #2c3e50;      /* Azul escuro/Cinzento */
-    --tertiary-color: #34495e;       /* Azul médio/Cinzento */
-    --success-color: #28a745;        /* Verde para sucesso/preço */
-    --danger-color: #e74c3c;         /* Vermelho para remover/erro */
-    --light-bg: #f4f4f4;             /* Fundo claro geral */
-    --white: #fff;                   /* Branco */
-    --dark-text: #333;               /* Texto escuro padrão */
-    --medium-text: #555;             /* Texto médio */
-    --light-text: #666;              /* Texto claro */
-    --border-color: #eee;            /* Cor de borda leve */
-    --shadow-light: rgba(0, 0, 0, 0.05); /* Sombra leve */
-    --shadow-medium: rgba(0, 0, 0, 0.1); /* Sombra média */
-    --shadow-heavy: rgba(0, 0, 0, 0.2);  /* Sombra pesada */
+    --primary-color: #007bff;
+    --secondary-color: #00f7ffbe;
+    --tertiary-color: #34495e;
+    --success-color: #28a745;
+    --danger-color: #e74c3c;
+    --light-bg: #000000;
+    --white: #ffffff;
+    --dark-text: #333;
+    --medium-text: #555;
+    --light-text: #666;
+    --border-color: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-medium: rgba(0, 0, 0, 0.1);
+    --shadow-heavy: rgba(0, 0, 0, 0.2);
 
-    /* Espaçamentos e Tamanhos Comuns */
     --padding-sm: 10px;
     --padding-md: 15px;
     --padding-lg: 20px;
@@ -29,11 +24,8 @@
     --border-radius-md: 8px;
 }
 
-/* ==================================== */
-/* Estilos Gerais           */
-/* ==================================== */
 html {
-    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura total */
+    box-sizing: border-box;
 }
 
 *, *::before, *::after {
@@ -47,16 +39,13 @@ body {
     background-color: var(--light-bg);
     color: var(--dark-text);
     line-height: 1.6;
-    scroll-behavior: smooth; /* Suaviza a rolagem para âncoras */
+    scroll-behavior: smooth;
 }
 
-/* ==================================== */
-/* Header               */
-/* ==================================== */
 header {
     background-color: var(--secondary-color);
     color: var(--white);
-    padding: var(--padding-lg) var(--padding-lg); /* Padding vertical e horizontal */
+    padding: var(--padding-lg) var(--padding-lg);
     text-align: center;
     position: relative;
     box-shadow: 0 2px 5px var(--shadow-heavy);
@@ -64,12 +53,9 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 2.2em; /* Um pouco maior */
+    font-size: 2.2em;
 }
 
-/* ==================================== */
-/* Navegação               */
-/* ==================================== */
 nav ul {
     list-style: none;
     padding: 0;
@@ -77,7 +63,7 @@ nav ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: var(--padding-md); /* Espaçamento entre os itens */
+    gap: var(--padding-md);
 }
 
 nav ul li a {
@@ -86,7 +72,7 @@ nav ul li a {
     padding: 8px 15px;
     border-radius: var(--border-radius-sm);
     transition: background-color 0.3s ease;
-    white-space: nowrap; /* Evita quebra de linha em itens curtos */
+    white-space: nowrap;
 }
 
 nav ul li a:hover,
@@ -94,18 +80,15 @@ nav ul li a.active {
     background-color: var(--tertiary-color);
 }
 
-/* ==================================== */
-/* Ícone do Carrinho        */
-/* ==================================== */
 .cart-icon {
     position: absolute;
     top: 25px;
     right: 20px;
     cursor: pointer;
-    font-size: 1.6em; /* Um pouco maior */
+    font-size: 1.6em;
     display: flex;
     align-items: center;
-    color: var(--white); /* Garante que o ícone tenha cor */
+    color: var(--white);
 }
 
 .cart-icon .cart-count {
@@ -113,18 +96,15 @@ nav ul li a.active {
     color: var(--white);
     border-radius: 50%;
     padding: 2px 7px;
-    font-size: 0.75em; /* Ligeiramente maior para melhor leitura */
+    font-size: 0.75em;
     position: absolute;
     top: -8px;
     right: -8px;
-    min-width: 18px; /* Garante que o círculo não encolha demais */
+    min-width: 18px;
     text-align: center;
-    line-height: 1.2; /* Ajusta a linha para centralizar o texto */
+    line-height: 1.2;
 }
 
-/* ==================================== */
-/* Main Content          */
-/* ==================================== */
 main {
     padding: var(--padding-lg);
     max-width: 1200px;
@@ -155,9 +135,6 @@ section h3 {
     margin-bottom: var(--padding-md);
 }
 
-/* ==================================== */
-/* Botões (BTN)           */
-/* ==================================== */
 .btn {
     background-color: var(--primary-color);
     color: var(--white);
@@ -170,11 +147,11 @@ section h3 {
     display: inline-block;
     margin-top: var(--padding-md);
     font-size: 1em;
-    text-align: center; /* Garante que o texto dentro do botão seja centralizado */
+    text-align: center;
 }
 
 .btn:hover {
-    background-color: #0056b3; /* Cor mais escura do azul primário */
+    background-color: #0056b3;
     transform: translateY(-2px);
 }
 
@@ -189,7 +166,7 @@ section h3 {
 }
 
 .btn-remove:hover {
-    background-color: #c0392b; /* Cor mais escura do vermelho */
+    background-color: #c0392b;
 }
 
 .checkout-btn {
@@ -198,7 +175,7 @@ section h3 {
 }
 
 .checkout-btn:hover {
-    background-color: #218838; /* Cor mais escura do verde */
+    background-color: #218838;
 }
 
 .checkout-confirm-btn {
@@ -211,82 +188,32 @@ section h3 {
     background-color: #218838;
 }
 
-/* ==================================== */
-/* Hero Section            */
-/* ==================================== */
 .hero {
-    background: url('https://images.unsplash.com/photo-1549495066-e0691238b707?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjYxNTR8MHwxfHNlYXJjaHwxNHx8Y2l0eSUyMHBlc3QlMjBjb250cm9sfGVufDB8fHx8MTcxNzkxNDE0MHww&ixlib=rb-4.0.3&q=80&w=1200') no-repeat center center/cover;
+    background: url('https://www.google.com/aclk?sa=l&ai=DChsSEwimu9fmv-eNAxXtXkgAHUTDE_gYACICCAEQBRoCY2U&co=1&gclid=CjwKCAjwr5_CBhBlEiwAzfwYuJM_b7QSJhbL-WWjt-eDZx9Fa0TYBHOtl1g-SyTevfP-y1TklcW9tRoCIy4QAvD_BwE&category=acrcp_v1_48&sig=AOD64_1VhCA9zo-jY27j4DrLvmimxgz8Ww&ctype=5&q=&ved=2ahUKEwjRvtPmv-eNAxWQGLkGHT3eBTQQwg8oAXoECAUQHA&adurl=') no-repeat center center/cover;
     color: var(--white);
     padding: 60px var(--padding-lg);
     text-align: center;
     border-radius: var(--border-radius-md);
     margin-bottom: var(--margin-lg);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra mais forte para o texto no hero */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .hero h2 {
-    font-size: 3em; /* Um pouco maior para destaque */
+    font-size: 3em;
     margin-bottom: var(--padding-md);
 }
 
 .hero p {
-    font-size: 1.25em; /* Ligeiramente maior */
+    font-size: 1.25em;
     max-width: 700px;
     margin: 0 auto var(--margin-md);
 }
 
-/* ==================================== */
-/* Grid de Features          */
-/* ==================================== */
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: var(--margin-lg);
-}
-
-.feature-item {
-    background-color: var(--white); /* Ajuste para branco */
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-md);
-    padding: var(--padding-lg);
-    text-align: center;
-    box-shadow: 0 2px 5px var(--shadow-light);
-    transition: transform 0.3s ease;
-}
-
-.feature-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px var(--shadow-medium); /* Sombra mais pronunciada no hover */
-}
-
-.feature-item img {
-    max-width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: var(--border-radius-sm);
-    margin-bottom: var(--padding-md);
-}
-
-.feature-item h4 {
-    font-size: 1.3em;
-    color: var(--secondary-color);
-    margin-bottom: var(--padding-sm);
-}
-
-.feature-item p {
-    font-size: 0.95em;
-    color: var(--medium-text);
-}
-
-/* ==================================== */
-/* Listagem de Produtos       */
-/* ==================================== */
 #product-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--margin-md);
-    padding: var(--padding-lg) 0; /* Remove padding horizontal desnecessário do grid container */
+    padding: var(--padding-lg) 0;
     justify-items: center;
 }
 
@@ -302,7 +229,7 @@ section h3 {
     align-items: center;
     max-width: 300px;
     transition: transform 0.3s ease;
-    height: 100%; /* Garante que todos os itens de produto tenham a mesma altura */
+    height: 100%;
 }
 
 .product-item:hover {
@@ -319,7 +246,7 @@ section h3 {
 }
 
 .product-item h3 {
-    font-size: 1.3em; /* Ligeiramente maior */
+    font-size: 1.3em;
     margin: var(--padding-sm) 0;
     color: var(--dark-text);
 }
@@ -332,7 +259,7 @@ section h3 {
 }
 
 .product-item .price {
-    font-size: 1.2em; /* Ligeiramente maior */
+    font-size: 1.2em;
     font-weight: bold;
     color: var(--success-color);
     margin: var(--padding-sm) 0;
@@ -342,11 +269,8 @@ section h3 {
     width: 90%;
 }
 
-/* ==================================== */
-/* Seções de Soluções        */
-/* ==================================== */
 .solution-category {
-    background-color: var(--white); /* Ajuste para branco */
+    background-color: var(--white);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-md);
     padding: var(--padding-lg);
@@ -356,7 +280,7 @@ section h3 {
 
 .solution-category h3 {
     color: var(--secondary-color);
-    font-size: 1.6em; /* Um pouco maior */
+    font-size: 1.6em;
     margin-bottom: var(--padding-md);
     display: flex;
     align-items: center;
@@ -382,9 +306,6 @@ section h3 {
     border-bottom: none;
 }
 
-/* ==================================== */
-/* Blog                 */
-/* ==================================== */
 .blog-posts {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -393,7 +314,7 @@ section h3 {
 }
 
 .blog-post-card {
-    background-color: var(--white); /* Ajuste para branco */
+    background-color: var(--white);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-md);
     overflow: hidden;
@@ -401,7 +322,7 @@ section h3 {
     transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
-    height: 100%; /* Garante altura uniforme para os cards */
+    height: 100%;
 }
 
 .blog-post-card:hover {
@@ -416,7 +337,7 @@ section h3 {
 }
 
 .blog-post-card h3 {
-    font-size: 1.5em; /* Ligeiramente maior */
+    font-size: 1.5em;
     color: var(--secondary-color);
     margin: var(--padding-md);
 }
@@ -444,9 +365,6 @@ section h3 {
     background-color: #0056b3;
 }
 
-/* ==================================== */
-/* Carrinho             */
-/* ==================================== */
 .cart-items-list {
     list-style: none;
     padding: 0;
@@ -480,18 +398,15 @@ section h3 {
 }
 
 .cart-total {
-    font-size: 1.4em; /* Ligeiramente maior */
+    font-size: 1.4em;
     font-weight: bold;
     text-align: right;
     margin-top: var(--margin-md);
     color: var(--secondary-color);
 }
 
-/* ==================================== */
-/* Finalizar Compra          */
-/* ==================================== */
 .checkout-summary, .checkout-form {
-    background-color: var(--white); /* Ajuste para branco */
+    background-color: var(--white);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-md);
     padding: var(--padding-lg);
@@ -528,7 +443,7 @@ section h3 {
 .checkout-form input[type="text"],
 .checkout-form input[type="email"],
 .checkout-form select {
-    width: 100%; /* Ocupa a largura total e padding será interno */
+    width: 100%;
     padding: var(--padding-sm);
     margin-bottom: var(--padding-md);
     border: 1px solid #ccc;
@@ -549,9 +464,6 @@ section h3 {
     margin: var(--padding-md) auto;
 }
 
-/* ==================================== */
-/* Sobre Nós e Contato         */
-/* ==================================== */
 #sobre p, #contato p {
     font-size: 1.1em;
     margin-bottom: var(--padding-md);
@@ -572,7 +484,7 @@ section h3 {
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form textarea {
-    width: 100%; /* Ocupa a largura total */
+    width: 100%;
     padding: var(--padding-sm);
     margin-bottom: var(--padding-md);
     border: 1px solid #ccc;
@@ -589,9 +501,6 @@ section h3 {
     width: 100%;
 }
 
-/* ==================================== */
-/* Footer               */
-/* ==================================== */
 footer {
     background-color: var(--secondary-color);
     color: var(--white);
@@ -603,7 +512,7 @@ footer {
 
 .social-media a {
     color: var(--white);
-    font-size: 1.6em; /* Ligeiramente maior */
+    font-size: 1.6em;
     margin: 0 var(--padding-sm);
     transition: color 0.3s ease;
 }
@@ -612,9 +521,6 @@ footer {
     color: var(--primary-color);
 }
 
-/* ==================================== */
-/* Modal do Carrinho           */
-/* ==================================== */
 .cart-modal {
     display: none;
     position: fixed;
@@ -625,7 +531,7 @@ footer {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
-    display: flex; /* Usar flexbox para centralização */
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -649,7 +555,6 @@ footer {
 
 .close-button {
     color: #aaa;
-    /* float: right; Removido float pois display flex é mais moderno */
     font-size: 28px;
     font-weight: bold;
     position: absolute;
@@ -664,9 +569,6 @@ footer {
     cursor: pointer;
 }
 
-/* ==================================== */
-/* Responsividade           */
-/* ==================================== */
 @media (max-width: 768px) {
     header h1 {
         font-size: 1.8em;
@@ -681,15 +583,14 @@ footer {
         position: static;
         margin-top: var(--padding-sm);
         justify-content: center;
-        width: 100%; /* Garante que o ícone do carrinho também centralize bem */
+        width: 100%;
     }
 
     .cart-icon .cart-count {
-        /* Ajuste a posição se o ícone mudar de static para flex item */
-        position: relative; /* Ajusta para dentro do fluxo do flex */
+        position: relative;
         top: auto;
         right: auto;
-        margin-left: 5px; /* Espaçamento do ícone */
+        margin-left: 5px;
     }
 
     .hero h2 {
@@ -700,20 +601,18 @@ footer {
         font-size: 1em;
     }
 
-    /* Em telas menores, os grids viram uma coluna */
     #product-list, 
-    .feature-grid, 
+    /* .feature-grid, */ /* Removido */
     .blog-posts {
         grid-template-columns: 1fr;
     }
 
     .product-item, 
-    .feature-item, 
+    /* .feature-item, */ /* Removido */
     .blog-post-card {
         max-width: 100%;
     }
     
-    /* Input fields já estão em 100% com box-sizing: border-box */
     .checkout-form input[type="text"],
     .checkout-form input[type="email"],
     .checkout-form select,
