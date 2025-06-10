@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Loja de Pesca</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Defensores Inseticidas: Campo & Cidade</title>
+    <link rel="stylesheet" href="styles.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
-        <h1>Minha Loja de Pesca</h1>
+        <h1>Defensores Inseticidas: Campo & Cidade</h1>
         <nav>
             <ul>
                 <li><a href="#" class="tab-link active" data-tab="home">Início</a></li>
                 <li><a href="#" class="tab-link" data-tab="produtos">Produtos</a></li>
+                <li><a href="#" class="tab-link" data-tab="solucoes">Soluções</a></li>
+                <li><a href="#" class="tab-link" data-tab="blog">Blog</a></li>
                 <li><a href="#" class="tab-link" data-tab="carrinho">Carrinho</a></li>
                 <li><a href="#" class="tab-link" data-tab="finalizar-compra">Finalizar Compra</a></li>
                 <li><a href="#" class="tab-link" data-tab="sobre">Sobre Nós</a></li>
@@ -29,21 +32,76 @@
     <main>
         <section id="home" class="tab-section">
             <div class="hero">
-                <h2>Bem-vindo à Minha Loja de Pesca!</h2>
-                <p>Encontre os melhores equipamentos e iscas para sua próxima aventura de pesca.</p>
+                <h2>Proteção Eficaz Contra Pragas para o Campo e a Cidade!</h2>
+                <p>Encontre as melhores soluções em inseticidas e defensivos para sua lavoura, casa e empresa.</p>
+                <a href="#produtos" class="btn hero-btn">Explore Nossos Produtos</a>
             </div>
-            <h3>Galeria de Fotos de Pescarias</h3>
-            <div class="fotos-pescaria">
-                <img src="https://images.unsplash.com/photo-1510168487739-1b32f91a5c6d?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80" alt="Pescaria 1">
-                <img src="https://images.unsplash.com/photo-1507742051011-37d457639f70?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80" alt="Pescaria 2">
-                <img src="https://images.unsplash.com/photo-1596700688009-1a4c9b3a3a1f?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80" alt="Pescaria 3">
-                <img src="https://images.unsplash.com/photo-1549646876-0f7e4f1a4e1a?ixlib=rb-4.0.1&auto=format&fit=crop&w=800&q=80" alt="Pescaria 4">
+            <h3>Nossas Soluções em Destaque</h3>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <img src="https://images.unsplash.com/photo-1550993510-18ddac3e80f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjYxNTR8MHwxfHNlYXJjaHwyMHx8YWdyaWN1bHR1cmUlMjBpbnNlY3RpY2lkZXN8ZW58MHx8fHwxNzE3OTE0MTI5fDA&ixlib=rb-4.0.3&q=80&w=400" alt="Defensivos Agrícolas">
+                    <h4>Para o Agronegócio</h4>
+                    <p>Proteção da lavoura contra pragas e doenças para máxima produtividade.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="https://images.unsplash.com/photo-1549495066-e0691238b707?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjYxNTR8MHwxfHNlYXJjaHwxNHx8Y2l0eSUyMHBlc3QlMjBjb250cm9sfGVufDB8fHx8MTcxNzkxNDE0MHww&ixlib=rb-4.0.3&q=80&w=400" alt="Controle de Pragas Urbanas">
+                    <h4>Para Ambientes Urbanos</h4>
+                    <p>Controle eficaz de insetos em residências, comércios e indústrias.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="https://images.unsplash.com/photo-1620359850116-417169a685b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjYxNTR8MHwxfHNlYXJjaHw3fHxjb25zdWx0aW5nJTIwYWdyaWN1bHR1cmV8ZW58MHx8fHwxNzE3OTE0MTE4fDA&ixlib=rb-4.0.3&q=80&w=400" alt="Consultoria Especializada">
+                    <h4>Consultoria Técnica</h4>
+                    <p>Nossos especialistas te auxiliam na escolha e aplicação dos melhores produtos.</p>
+                </div>
             </div>
         </section>
 
         <section id="produtos" class="tab-section" style="display: none;">
             <h2>Nossos Produtos</h2>
+            <p>Conheça nossa linha completa de inseticidas e defensivos.</p>
             <div class="product-grid" id="product-list">
+                </div>
+        </section>
+
+        <section id="solucoes" class="tab-section" style="display: none;">
+            <h2>Soluções Completas para Cada Necessidade</h2>
+            <p>Descubra as abordagens e produtos específicos para o seu problema de pragas.</p>
+            <div class="solution-category">
+                <h3><i class="fas fa-tractor"></i> Soluções para o Campo</h3>
+                <ul>
+                    <li>**Controle de Pragas de Grandes Culturas:** Soja, Milho, Trigo, Cana-de-Açúcar.</li>
+                    <li>**Manejo de Doenças e Ervas Daninhas:** Herbicidas e fungicidas de alta performance.</li>
+                    <li>**Otimização da Produtividade:** Soluções integradas para o ciclo da sua cultura.</li>
+                    <li>**Serviços de Consultoria Agronômica:** Análise e recomendações personalizadas.</li>
+                </ul>
+            </div>
+            <div class="solution-category">
+                <h3><i class="fas fa-city"></i> Soluções para a Cidade</h3>
+                <ul>
+                    <li>**Residências:** Controle de baratas, formigas, mosquitos, aranhas e roedores.</li>
+                    <li>**Comércios e Indústrias:** Desinsetização, descupinização e desratização.</li>
+                    <li>**Estabelecimentos Alimentícios:** Programas de controle de pragas sanitárias.</li>
+                    <li>**Hotéis e Condomínios:** Manutenção e prevenção contínua.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="blog" class="tab-section" style="display: none;">
+            <h2>Nosso Blog: Dicas e Novidades</h2>
+            <p>Fique por dentro das últimas tendências, dicas de manejo e notícias do setor.</p>
+            <div class="blog-posts">
+                <article class="blog-post-card">
+                    <img src="https://images.unsplash.com/photo-1520697949363-228cf085b376?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjYxNTR8MHwxfHNlYXJjaHwxNXx8ZmFybSUyMHBlc3QlMjBjb250cm9sfGVufDB8fHx8MTcxNzkxNDY4OXww&ixlib=rb-4.0.3&q=80&w=400" alt="Dicas de Pulverização">
+                    <h3>Como Otimizar a Pulverização na Sua Lavoura</h3>
+                    <p>Conheça as melhores práticas para aplicar defensivos de forma eficiente e segura.</p>
+                    <a href="#" class="read-more">Leia Mais</a>
+                </article>
+                <article class="blog-post-card">
+                    <img src="https://images.unsplash.com/photo-1549495066-e0691238b707?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NjYxNTR8MHwxfHNlYXJjaHwxNHx8Y2l0eSUyMHBlc3QlMjBjb250cm9sfGVufDB8fHx8MTcxNzkxNDE0MHww&ixlib=rb-4.0.3&q=80&w=400" alt="Pragas Urbanas Comuns">
+                    <h3>As 5 Pragas Urbanas Mais Comuns e Como Combatê-las</h3>
+                    <p>Identifique e elimine os visitantes indesejados da sua casa ou empresa.</p>
+                    <a href="#" class="read-more">Leia Mais</a>
+                </article>
             </div>
         </section>
 
@@ -95,7 +153,8 @@
                         <option value="pix">PIX</option>
                     </select>
 
-                    <div id="campos-pagamento-dinamicos"></div>
+                    <div id="campos-pagamento-dinamicos">
+                        </div>
 
                     <button type="submit" class="btn checkout-confirm-btn">Confirmar Pedido</button>
                 </form>
@@ -103,20 +162,38 @@
         </section>
 
         <section id="sobre" class="tab-section" style="display: none;">
-            <h2>Sobre Nós</h2>
-            <p>Somos apaixonados por pesca e oferecemos os melhores produtos para tornar sua experiência inesquecível. Desde 2023, nosso compromisso é com a qualidade e a satisfação do cliente.</p>
+            <h2>Sobre a Defensores Inseticidas</h2>
+            <p>Na **Defensores Inseticidas**, somos sua parceira no controle de pragas, com soluções eficazes tanto para o **campo** quanto para a **cidade**. Desde 2023, nosso compromisso é oferecer produtos de alta qualidade e serviços de consultoria especializada, garantindo a proteção da sua produção agrícola, a segurança do seu lar e a tranquilidade do seu negócio.</p>
+            <p>Nossa missão é promover ambientes mais saudáveis e produtivos, combatendo insetos e outras pragas de forma responsável e sustentável, com um time de especialistas sempre pronto para te ajudar a encontrar a solução ideal.</p>
         </section>
 
         <section id="contato" class="tab-section" style="display: none;">
-            <h2>Contato</h2>
-            <p>Email: contato@lojapesca.com</p>
-            <p>Telefone: (XX) XXXX-XXXX</p>
-            <p>Endereço: Rua da Pesca, 123 - Cidade, Estado</p>
+            <h2>Fale Conosco</h2>
+            <p>Precisa de ajuda ou tem alguma dúvida? Entre em contato, teremos prazer em ajudar!</p>
+            <p><i class="fas fa-envelope"></i> Email: contato@defensoresinseciticidas.com.br</p>
+            <p><i class="fas fa-phone-alt"></i> Telefone: (41) 3333-4444</p>
+            <p><i class="fas fa-map-marker-alt"></i> Endereço: Rua dos Defensores, 789 - Bairro Verde, Curitiba, PR</p>
+            <form class="contact-form">
+                <label for="contact-name">Seu Nome:</label>
+                <input type="text" id="contact-name" name="contact-name" required>
+                <label for="contact-email">Seu Email:</label>
+                <input type="email" id="contact-email" name="contact-email" required>
+                <label for="contact-subject">Assunto:</label>
+                <input type="text" id="contact-subject" name="contact-subject" required>
+                <label for="contact-message">Sua Mensagem:</label>
+                <textarea id="contact-message" name="contact-message" rows="5" required></textarea>
+                <button type="submit" class="btn">Enviar Mensagem</button>
+            </form>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 Minha Loja de Pesca. Todos os direitos reservados.</p>
+        <p>&copy; 2023 Defensores Inseticidas. Todos os direitos reservados.</p>
+        <div class="social-media">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
     </footer>
 
     <div id="cartModal" class="cart-modal">
@@ -124,7 +201,7 @@
             <span class="close-button">&times;</span>
             <h2>Seu Carrinho</h2>
             <ul id="cartItemsList" class="cart-items-list">
-            </ul>
+                </ul>
             <p class="cart-total">Total: R$ <span id="cartTotal">0.00</span></p>
             <button class="btn checkout-btn" id="finalizarCompraModalBtn">Finalizar Compra</button>
         </div>
